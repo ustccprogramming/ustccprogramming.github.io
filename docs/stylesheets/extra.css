@@ -1,0 +1,39 @@
+:root {
+  --md-text-font: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", "Source Han Sans SC";
+  --md-code-font: "Sarasa Mono SC", "JetBrains Mono", "SFMono-Regular", "Cascadia Mono", Consolas, Menlo, ui-monospace;
+}
+
+[data-md-color-scheme="default"][data-md-color-primary="blue"] {
+  --md-primary-fg-color: #0b4f8a;
+  --md-primary-fg-color--light: #3d78ad;
+  --md-primary-fg-color--dark: #083864;
+  --md-typeset-a-color: #0b4f8a;
+}
+
+[data-md-color-scheme="slate"][data-md-color-primary="blue"] {
+  --md-primary-fg-color: #0b4f8a;
+  --md-primary-fg-color--light: #4d86b8;
+  --md-primary-fg-color--dark: #083864;
+  --md-typeset-a-color: #9ec4e6;
+}
+
+.md-typeset {
+  font-size: 0.8rem;
+  line-height: 1.75;
+}
+
+.md-typeset .hero-kicker {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent);
+  color: var(--md-typeset-a-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.md-typeset .grid.cards > ul > li > p:last-child {
+  margin-bottom: 0;
+}
