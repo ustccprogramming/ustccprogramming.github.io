@@ -1,10 +1,10 @@
 [project]
-site_name = "CS1003 计算机程序设计"
-site_description = "中国科学技术大学 CS1003 计算机程序设计参考答案"
+site_name = "CS1003.05 计算机程序设计"
+site_description = "中国科学技术大学 CS1003.05 计算机程序设计参考答案"
 site_url = "https://ustccprogramming.github.io/"
 repo_url = "https://github.com/ustccprogramming/ustccprogramming.github.io"
 repo_name = "ustccprogramming.github.io"
-copyright = "中国科学技术大学 CS1003 计算机程序设计"
+copyright = "中国科学技术大学 CS1003.05 计算机程序设计"
 
 nav = [
   { "首页" = "index.md" },

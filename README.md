@@ -1,6 +1,6 @@
-# CS1003 计算机程序设计
+# CS1003.05 计算机程序设计
 
-中国科学技术大学 CS1003 的课程主页，用 [Zensical](https://zensical.org/) 生成，通过 GitHub Pages 发布参考答案。
+中国科学技术大学 CS1003.05 的课程主页，用 [Zensical](https://zensical.org/) 生成，通过 GitHub Pages 发布参考答案。
 
 站点地址：<https://ustccprogramming.github.io/>
 
