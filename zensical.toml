@@ -9,7 +9,6 @@ copyright = "中国科学技术大学 CS1003.05 计算机程序设计"
 nav = [
   { "首页" = "index.md" },
   { "参考答案" = "blog/index.md" },
-  { "发布答案" = "guide/publish.md" },
 ]
 
 extra_css = ["stylesheets/extra.css"]
