@@ -12,7 +12,7 @@
 
 `https://ustccprogramming.github.io/blog/lab03-piecewise/`
 
-分类建议只用这三个：`实验`、`作业`、`公告`。
+`categories` 填 `实验` 或 `作业`，文章会自动进入对应的答案栏目。发布说明等通知使用 `公告`。
 
 ````markdown
 ---

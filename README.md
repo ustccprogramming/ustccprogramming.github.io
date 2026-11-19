@@ -15,6 +15,6 @@ zensical serve
 
 ## 发布答案
 
-在 `docs/blog/posts/` 新增一篇 Markdown，推送到 `main`。步骤写在站点的「发布答案」页。未到公开时间的解答不要提交到这个公开仓库。
+在 `docs/blog/posts/` 新增一篇 Markdown，将 `categories` 设为 `实验` 或 `作业`，文章会进入对应栏目。确认可以公开后推送到 `main`。具体步骤见 [发布答案](docs/guide/publish.md)。
 
 不要把学生名单、成绩或作业原文放进本仓库。
