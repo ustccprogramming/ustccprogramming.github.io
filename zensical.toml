@@ -1,6 +1,6 @@
 [project]
 site_name = "CS1003.05 计算机程序设计"
-site_description = "中国科学技术大学 CS1003.05 计算机程序设计参考答案"
+site_description = "中国科学技术大学 CS1003.05 计算机程序设计参考答案与交互演示"
 site_url = "https://ustccprogramming.github.io/"
 repo_url = "https://github.com/ustccprogramming/ustccprogramming.github.io"
 repo_name = "ustccprogramming.github.io"
@@ -10,7 +10,10 @@ nav = [
   { "首页" = "index.md" },
   { "实验答案" = "/blog/category/实验/" },
   { "作业答案" = "/blog/category/作业/" },
-  { "排序可视化" = "/sorting/" },
+  { "可视化" = [
+    { "总览" = "visualizations/index.md" },
+    { "排序可视化" = "/sorting/" },
+  ] },
 ]
 
 extra_css = ["stylesheets/extra.css"]
