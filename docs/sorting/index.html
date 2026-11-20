@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="逐步演示冒泡排序、选择排序和插入排序，观察数组变化及对应的 C 代码。">
+  <meta name="theme-color" content="#1c2341">
+  <title>排序可视化 · CS1003.05 计算机程序设计</title>
+  <link rel="icon" href="../images/logo.svg">
+  <link rel="stylesheet" href="sorting.css">
+  <script type="module" src="sorting.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-content">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>CS1003.05</strong><span class="brand-course">计算机程序设计</span></span>
+      </a>
+      <a class="course-link" href="/">课程首页</a>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="intro">
+      <h1>排序可视化</h1>
+      <p>用同一组数据，看看三种排序怎样把整数从小到大排好。</p>
+    </div>
+    <div class="algorithm-picker" role="group" aria-label="选择排序算法">
+      <button type="button" data-algorithm="bubble" aria-pressed="true">
+        <strong>冒泡排序</strong><span>比较相邻元素</span>
+      </button>
+      <button type="button" data-algorithm="selection" aria-pressed="false">
+        <strong>选择排序</strong><span>寻找剩余最小值</span>
+      </button>
+      <button type="button" data-algorithm="insertion" aria-pressed="false">
+        <strong>插入排序</strong><span>把新元素插入有序区</span>
+      </button>
+    </div>
+    <div class="workspace">
+      <section class="panel simulation" aria-labelledby="algorithm-title">
+        <div class="panel-heading">
+          <h2 id="algorithm-title">冒泡排序</h2>
+          <dl class="metrics" aria-label="当前操作计数">
+            <div><dt>比较</dt><dd id="comparisons">0</dd></div>
+            <div><dt>写入数组</dt><dd id="writes">0</dd></div>
+          </dl>
+        </div>
+        <div class="stage">
+          <div class="stage-header">
+            <ul id="legend" class="legend" aria-label="图例"></ul>
+            <span id="held" class="held" hidden></span>
+          </div>
+          <div class="chart-scroll" tabindex="0" role="region" aria-label="柱形图与数组下标">
+            <div id="chart" class="chart">
+              <div class="plot">
+                <div id="zero-line" class="zero-line" aria-hidden="true"><span>0</span></div>
+                <div id="slots" class="slots" aria-hidden="true"></div>
+                <div id="bars" class="bars" aria-hidden="true"></div>
+              </div>
+              <div id="indices" class="indices" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+        <div id="current-step" class="current-step" role="status" aria-atomic="true">
+          <strong id="action" class="action">就绪</strong>
+          <span id="explanation">点击播放，或用「下一步」观察第一次比较。</span>
+          <span id="array-summary" class="visually-hidden"></span>
+        </div>
+        <div class="transport">
+          <div class="timeline">
+            <label for="timeline">进度</label>
+            <input type="range" id="timeline" min="0" max="1" value="0">
+            <output id="position" for="timeline">0 / 0 步</output>
+          </div>
+          <div class="playback">
+            <div class="playback-buttons">
+              <button type="button" id="restart" class="button">起点</button>
+              <button type="button" id="previous" class="button">上一步</button>
+              <button type="button" id="play" class="button primary">播放</button>
+              <button type="button" id="next" class="button">下一步</button>
+            </div>
+            <div class="speed">
+              <label for="speed">速度</label>
+              <select id="speed">
+                <option value="1600">0.5×</option>
+                <option value="800" selected>1×</option>
+                <option value="400">2×</option>
+                <option value="200">4×</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel code-panel" aria-labelledby="code-title">
+        <div class="panel-heading">
+          <h2 id="code-title">对应的 C 代码</h2>
+        </div>
+        <div class="code-scroll" tabindex="0" role="region" aria-label="C 代码">
+          <pre><code id="code"></code></pre>
+        </div>
+        <p id="principle" class="principle"></p>
+        <p class="code-note"><code>a</code> 是数组，<code>n</code> 是元素个数。</p>
+      </aside>
+
+      <section class="panel data-panel" aria-labelledby="data-title">
+        <div>
+          <h2 id="data-title">试试不同的输入</h2>
+          <div class="presets" role="group" aria-label="示例数据">
+            <button type="button" class="button" data-preset="nearly">近乎有序</button>
+            <button type="button" class="button" data-preset="reverse">逆序</button>
+            <button type="button" class="button" data-preset="duplicates">含重复值</button>
+            <button type="button" class="button" data-preset="random">随机生成</button>
+          </div>
+        </div>
+        <form id="data-form" novalidate>
+          <label for="data-input">自定义数组</label>
+          <div class="data-entry">
+            <input type="text" id="data-input" aria-describedby="data-help data-error" maxlength="80" autocomplete="off" spellcheck="false" required>
+            <button type="submit" class="button">应用</button>
+          </div>
+          <p id="data-help">输入 2–12 个 −99 到 99 的整数，用逗号或空格隔开。</p>
+          <p id="data-error" role="alert" hidden></p>
+        </form>
+      </section>
+
+      <section class="panel comparison-panel" aria-labelledby="comparison-title">
+        <div class="comparison-copy">
+          <h2 id="comparison-title">同一组数据的运行结果</h2>
+          <p>比较只统计元素值之间的比较。交换两个元素记为两次数组写入，暂存到 <code>key</code> 不计入。</p>
+          <p id="duplicate-note" hidden>相同值用字母区分原始先后顺序。切换到「含重复值」后，可以观察排序完成时这些字母的顺序。</p>
+        </div>
+        <table aria-labelledby="comparison-title">
+          <thead><tr><th scope="col">算法</th><th scope="col">比较</th><th scope="col">写入数组</th></tr></thead>
+          <tbody id="comparison"></tbody>
+        </table>
+      </section>
+    </div>
+    <noscript><p>请启用 JavaScript 以运行排序演示。</p></noscript>
+  </main>
+</body>
+</html>

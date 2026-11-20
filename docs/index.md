@@ -26,6 +26,12 @@ title: 首页
 
     [查看作业答案](/blog/category/作业/)
 
+-   **排序可视化**
+
+    逐步观察冒泡排序、选择排序和插入排序，对照 C 代码看数组怎样变化。
+
+    [打开排序演示](/sorting/){ data-no-instant }
+
 </div>
 
 [答案发布说明](blog/posts/welcome.md)

@@ -10,6 +10,7 @@ nav = [
   { "首页" = "index.md" },
   { "实验答案" = "/blog/category/实验/" },
   { "作业答案" = "/blog/category/作业/" },
+  { "排序可视化" = "/sorting/" },
 ]
 
 extra_css = ["stylesheets/extra.css"]
